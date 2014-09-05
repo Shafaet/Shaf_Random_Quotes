@@ -1,7 +1,7 @@
 <?php
     /*
     Plugin Name: Shaf Random Quotes
-    Description: Plugin for displaying random quotes
+    Description: Plugin for displaying random quotes in wordpress. (See README file)
     Author: Shafaet Ashraf
     Version: 1.0
     Author URI: http://www.shafaetsplanet.com
@@ -111,7 +111,7 @@
 		</script>
 
 		</script>";
-		return "Shaf the boss";
+		
 	}
 	
 
