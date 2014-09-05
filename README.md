@@ -2,7 +2,7 @@ Shaf Random Quotes
 ==================
 
 
-Beta version of my plugin to show random quotes in wordpress.
+Beta version of my plugin to show random quotes in wordpress. It is a test version and have many limitations.
 
 Usage:
 
@@ -11,9 +11,7 @@ Usage:
 3. Go to Settings->Shaf Random Quotes to add your favourite quotes.
 4. Use the shortcode [shaf_rand_quote] where you want to display the quotes. You can put it in more than one place!
 
-Disclaimer:
 
-This is a beta test version and have many limitations. 
 
 Contact:
 Shafaet Ashraf
