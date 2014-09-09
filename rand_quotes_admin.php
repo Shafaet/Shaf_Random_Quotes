@@ -24,6 +24,7 @@ function addInput()
 
 }
 </script>
+<div class="wrap">
 <?php
 	if($_REQUEST['shaf_submitted']==True)
 	{
@@ -45,8 +46,21 @@ function addInput()
 		}
 	
 	}
+	if($_REQUEST['delete_quotes']=='Delete')
+	{
+		$sel_row=$_REQUEST['sel_row'];
+		global $wpdb;
+		$count=0;
+		foreach($sel_row as $id)
+		{
+			$count++;
+			$data=array('id' => $id);
+			$wpdb->delete($wpdb->prefix."shaf_rand_quotes", $data);
+		}
+		echo "<font color=red>".$count." quoutes deleted</font><br>";
+	}
 ?>
-<div class="wrap">
+
 <p><font size=6><b>Shaf Random Quote Settings</b></font></p>
 
 <form name='add_quote' method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
@@ -60,8 +74,30 @@ Enter Author: <input type="text" name='author[]' value='' size=15 /><br>
 <input type=submit value="Submit Quotes" name="submit" />
 
 </form>
+<br>
+<p><font size=4>Quotes you added!</font></p>
+<form name='edit_quote' method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+<?php
+
+		
+		global $wpdb;
+		$table=$wpdb->prefix.'shaf_rand_quotes';
+		$sql="SELECT * FROM $table";
+	
+		$table_data = $wpdb->get_results($sql);
+		foreach($table_data as $row)
+		{
+			$full_quote=$row->quote;
+			
+			if($row->author!='')
+				$full_quote=$full_quote." (<i>".$row->author."</i>)";
+			echo "<input type=checkbox name=sel_row[] value=$row->id />";
+			echo $full_quote."<br>";
+		}
+		echo "<input type=submit value=Delete name=delete_quotes />";
+?>
+</form>
+
 
 </div>
-
-
 

@@ -1,9 +1,10 @@
 <?php
     /*
     Plugin Name: Shaf Random Quotes
-    Description: Plugin for displaying random quotes in wordpress. (See README file)
+    Plugin URI: https://github.com/Shafaet/Shaf_Random_Quotes
+    Description: Plugin for displaying random quotes
     Author: Shafaet Ashraf
-    Version: 1.0
+    Version: 1.10
     Author URI: http://www.shafaetsplanet.com
     */
 
@@ -99,7 +100,6 @@
 		{
 			match = document.cookie.match(new RegExp('Shaf_number_of_quotes' + '=([^;]+)'));
   			var number_of_quotes=match[1];
-  			var last1=-1,last2=-1;
 			setInterval(function(){
 				var show_quote_num=Math.floor((Math.random() * number_of_quotes) + 1);
 				document.getElementById('shaf_quotes').innerHTML = document.getElementById('hidden_quote'+show_quote_num).value;
@@ -125,4 +125,3 @@
 	
 
 ?>
-
