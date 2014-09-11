@@ -1,4 +1,4 @@
-Shaf Random Quotes 1.10
+Shaf Random Quotes 1.11
 =======================
 
 
@@ -22,6 +22,10 @@ Version History:
 1.10:
 Added quote delete feature.
 Removed some unneeded variables.
+
+1.11:
+Add "Usage" field in admin menu.
+Minor edits in texts. 
 
 Contact:
 Shafaet Ashraf

@@ -1,4 +1,4 @@
-Shaf Random Quotes 1.0
+Shaf Random Quotes 1.10
 =======================
 
 
@@ -19,7 +19,7 @@ Usage:
 
 Version History:
 
-1.0:
+1.10:
 Added quote delete feature.
 Removed some unneeded variables.
 
