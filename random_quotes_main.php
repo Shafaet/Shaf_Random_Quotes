@@ -32,6 +32,7 @@
     	public function __construct()
     	{
     		add_action( 'admin_menu', array($this,'my_plugin_menu') );
+    		/* Create Database table */
     		global $wpdb;
 		$charset_collate = '';
 
@@ -53,16 +54,20 @@
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
+		/* Table Creation Done */
+		
 
     	}
     	
     	
 	public function my_plugin_menu() {
+		//Add settings button in options page
 		$text = 'shaf_random_quotes';
 		add_options_page($text, "Shaf Random Quotes", 'manage_options', $text, array($this,'my_plugin_options') );
 	}
 	
 	function my_plugin_options() {
+	
 		if ( !current_user_can( 'manage_options' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 		}
@@ -74,12 +79,13 @@
 		add_shortcode( 'shaf_rand_quote', array($this,'shaf_rand_quote') );
 	}
 	function shaf_rand_quote(){
-	
+		//Retrieve the quotes from the database
 		global $wpdb;
 		$table=$wpdb->prefix.'shaf_rand_quotes';
 		$sql="SELECT * FROM $table";
-	
 		$table_data = $wpdb->get_results($sql);
+		
+		//Echo the quotes in a hidden form
 		echo "<form>";
 		$count=0;
 		foreach($table_data as $row)
@@ -93,6 +99,8 @@
 		echo "</form>";
 		 
 		setcookie("Shaf_number_of_quotes",$count);
+		
+		//Return a Javascript that displays quotes
 		return "
 		<p id='shaf_quotes'></p>
 		<script>
