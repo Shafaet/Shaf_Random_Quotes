@@ -2,7 +2,7 @@ Shaf Random Quotes 1.11
 =======================
 
 
-Beta version of my plugin to show random quotes in wordpress. It is a test version and have many limitations.
+A very minimalist wordpress plugin to display random text anywhere in the blog.
 
 
 Features:
